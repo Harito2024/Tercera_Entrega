@@ -1,0 +1,44 @@
+Este es un paso a paso para crear el servidor para el proyecto 
+
+1- npm init -y
+2- npm install express
+3- npm isntall multer
+4- Crear carpeta SRC y ahi generar el archivo app.js o server.js
+5- Dentro de la carpeta src crear la carpeta public, descargas y routes
+
+6- En el archivo app.js importar express
+ 	const express = require('express')
+
+    En caso de tener en el package.json el ---"type": "module",---
+    import express from express
+
+7- Crear una constante que traiga todo lo que tiene express.
+	Habitualmente de la llama app
+	const app = express()
+
+8- Importamos 'multer', 'path', '{fileURLToPath}' de url y '{dirname, join}' de path
+
+9- Creamos una const  __filename = fileURLToPath(import.meta.url)
+
+10- Creamos una const __dirname = dirname(__filename) 
+
+11- Creamos una constante y guardamos el nombre del puerto.
+	const PORT = 8080
+
+12- Escuchamos el pueto.....
+	app.listen(PORT, ()=>{console.log('Escuchando el Puerto')}
+
+-------Una vez creado el servidor y ya con la certeza que lo estamos ecuchando, creamos los 'Endpoint' ante del escuchar el puerto. Se crean antes
+
+
+13- Guardamos y verificacmos que la consola responda 
+
+git init -y
+
+para actualizar
+git add .
+git status
+git commit -m "escribir el commit"
+git push origin main
+
+

@@ -1,0 +1,62 @@
+<div>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <h2>Productos en tiempo real</h2>
+        </nav>
+        <h2>Productos</h2>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    {{!-- <th>id</th> --}}
+                    <th>Titulo</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Codigo</th>
+                    <th>Stock</th>
+                    <th>Categoria</th>
+                    <th>Status</th>
+                    <th>Imagen</th>
+                </tr>
+            </thead>
+            <tbody id="products_body">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<h2>Agregar un producto</h2>
+<div class="mb-3">
+    <form id="product_form">
+        <label class="form-label" for="title">Titulo</label>
+        <input class="form-control" type="text" name="title" id="title" required>
+
+        <label class="form-label" for="description">Descripcion</label>
+        <input class="form-control" type="text" name="description" id="description" required>
+
+        <label class="form-label" for="price">Precio</label>
+        <input class="form-control" type="number" name="price" id="price" required>
+
+        <label class="form-label" for="code">Codigo</label>
+        <input class="form-control" type="text" name="code" id="code" required>
+
+        <label class="form-label" for="stock">Stock</label>
+        <input class="form-control" type="number" name="stock" id="stock" required>
+
+        <label class="form-label" for="category">Categoria</label>
+        <input class="form-control" type="text" name="category" id="category" required>
+
+        <label class="form-label" for="status">Estado</label>
+        <input class="form-control" type="boolean" name="status" id="status" required>
+
+        <label class="form-label" for="thumbnail">Imagen</label>
+        <input class="form-control" type="text" name="thumbnail" id="thumbnail" required>
+
+        <button type="submit" class="btn btn-primary">Agregar Producto</button>
+
+    </form>
+</div>
+
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/realTimeProducts.js"></script>

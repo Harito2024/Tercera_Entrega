@@ -1,0 +1,43 @@
+<div>
+    <div>
+        <h2>Productos</h2>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Titulo</th> 
+                    <th>Precio</th>
+                    <th>Categoria</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{#each result.payload}}
+                <tr>
+
+                <td>{{this.title}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.category}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <div class="pagination">
+            <span>Cantidad de Productos por Pagina:{{result.limit}}</span><br>
+            {{#if result.query}}
+            <span>Filtro por: {{result.query}}</span><br>
+            {{/if}}
+
+            {{#if result.hasPrevPage}}
+            <a href="?page={{result.prevPage}}&limit={{result.limit}}{{#if result.query}}&query={{result.query}}{{/if}}">Anterior </a>
+            {{/if}}
+
+            <span>Pagina {{result.page}} de {{result.totalPages}}</span>
+
+            {{#if result.hasNextPage}}
+            <a href="?page={{result.nextPage}}&limit={{result.limit}}{{#if result.query}}&query={{result.query}}{{/if}}">Siguiente </a>
+            {{/if}}
+
+        </div>
+    </div>
+</div>
+

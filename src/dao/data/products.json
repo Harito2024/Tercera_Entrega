@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "Produto Prueba5",
+    "descripcion": "Este es un Producto de Prueba para actualizar el producto 1",
+    "price": 200,
+    "thumbnail": "Sin Imagen",
+    "code": "abc123",
+    "stock": 10
+  },
+  {
+    "id": 2,
+    "title": "Produto Prueba2",
+    "description": "Este es un Producto de Prueba2",
+    "price": 300,
+    "thumbnail": "Sin Imagen",
+    "code": "abc124",
+    "stock": 35
+  },
+  {
+    "id": 3,
+    "title": "Produto Prueba3",
+    "description": "Este es un Producto de Prueba 3 con error de campo al cual le falta el precio",
+    "price": 300,
+    "thumbnail": "Sin Imagen",
+    "code": "abc125",
+    "stock": 35
+  },
+  {
+    "id": 4,
+    "title": "Produto Prueba4",
+    "description": "Este es un Producto de Prueba4 con codigo repetido",
+    "price": 300,
+    "thumbnail": "Sin Imagen",
+    "code": "abc126",
+    "stock": 35
+  },
+  {
+    "id": 5,
+    "title": "Produto Prueba6",
+    "description": "Este es un Producto de Prueba6",
+    "price": 300,
+    "thumbnail": "Sin Imagen",
+    "code": "abc127",
+    "stock": 35
+  }
+]

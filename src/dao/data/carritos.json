@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "title": "Carrito Prueba5",
+      "descripcion": "Este es un Carrito de Prueba para actualizar el producto 1",
+      "price": 200,
+      "thumbnail": "Sin Imagen",
+      "code": "abc123",
+      "stock": 10
+    },
+    {
+      "id": 2,
+      "title": "Carrito Prueba2",
+      "description": "Este es un Carrito de Prueba2",
+      "price": 300,
+      "thumbnail": "Sin Imagen",
+      "code": "abc124",
+      "stock": 35
+    },
+    {
+      "id": 3,
+      "title": "Carrito Prueba3",
+      "description": "Este es un Carrito de Prueba 3 con error de campo al cual le falta el precio",
+      "price": 300,
+      "thumbnail": "Sin Imagen",
+      "code": "abc125",
+      "stock": 35
+    },
+    {
+      "id": 4,
+      "title": "Carrito Prueba4",
+      "description": "Este es un Carrito de Prueba4 con codigo repetido",
+      "price": 300,
+      "thumbnail": "Sin Imagen",
+      "code": "abc126",
+      "stock": 35
+    }
+  ]
