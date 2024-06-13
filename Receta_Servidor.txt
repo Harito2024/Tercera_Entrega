@@ -42,3 +42,32 @@ git commit -m "escribir el commit"
 git push origin main
 
 
+
+
+Login
+registramos usuarios
+Maca{
+	nombre: Maca,
+	apellido: Haro,
+	email: m@gmail.com,
+	edad:20,
+	password: 123ABC
+}
+
+Queque{
+	nombre: Queque,
+	apellido: Haro,
+	email: q@gmail.com,
+	edad:25,
+	password: 124ABC
+}
+
+JC{
+	nombre: JC,
+	apellido: Haro,
+	email: j@gmail.com,
+	edad:15,
+	password: 125ABC
+}
+
+

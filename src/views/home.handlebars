@@ -1,36 +1,10 @@
+{{> header}}
+
 <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <h1 class="texts-center mb-4">Bienvenidos a Handlebars</h1>
     </nav>
     <h2>Productos</h2>
-    {{!-- <table class="table table-sm">
-        <thead>
-            <tr>
-                <th>Titulo</th>
-                <th>Descripcion</th>
-                <th>Precio</th>
-                <th>Codigo</th>
-                <th>Stock</th>
-                <th>Categoria</th>
-                <th>Status</th>
-                <th>Imagen</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each products}}
-            <tr>
-                <td>{{this.title}}</td>
-                <td>{{this.description}}</td>
-                <td>{{this.price}}</td>
-                <td>{{this.code}}</td>
-                <td>{{this.stock}}</td>
-                <td>{{this.category}}</td>
-                <td>{{this.status}}</td>
-                <td>{{this.thumbnail}}</td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table> --}}
     <div class="row roe-cols-1 row-clas-md-2 row-cols-lg-3">
         {{#each products}}
 

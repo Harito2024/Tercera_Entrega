@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const ProductManager = require('../dao/controllers/product-manager.js')
+const ProductManager = require('../dao/product-manager.js')
 const messagesModel = require('../dao/models/messages.model.js')
 
 

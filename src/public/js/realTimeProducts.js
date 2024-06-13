@@ -1,11 +1,10 @@
 const socket = io()
 
 
-socket.on('products', (products)=>{
+socket.on('products', (payload)=>{
     const tbody = document.getElementById('products_body')
     tbody.innerHTML = ''
-    console.log(products)
-    products.products.forEach(product => {
+    payload.forEach(product => {
         const row = tbody.insertRow()
 
         row.innerHTML=`

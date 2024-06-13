@@ -1,3 +1,4 @@
+{{> header}}
 <div>
     <div>
         <h2>Productos</h2>
@@ -7,22 +8,28 @@
                     <th>Titulo</th> 
                     <th>Precio</th>
                     <th>Categoria</th>
+                    <th>Agregar</th>
 
                 </tr>
             </thead>
             <tbody>
                 {{#each result.payload}}
                 <tr>
-
                 <td>{{this.title}}</td>
                 <td>{{this.price}}</td>
                 <td>{{this.category}}</td>
+                <td>
+                    <button class="cart-button" onclick="addTocart('{{this._id}}')">
+                        <i class="fas fa-shopping-cart cart-icon"></i>
+                    </button>
+                </td>
                 </tr>
                 {{/each}}
             </tbody>
         </table>
         <div class="pagination">
             <span>Cantidad de Productos por Pagina:{{result.limit}}</span><br>
+            
             {{#if result.query}}
             <span>Filtro por: {{result.query}}</span><br>
             {{/if}}
@@ -36,8 +43,26 @@
             {{#if result.hasNextPage}}
             <a href="?page={{result.nextPage}}&limit={{result.limit}}{{#if result.query}}&query={{result.query}}{{/if}}">Siguiente </a>
             {{/if}}
-
         </div>
+        <script>
+            function addTocart(productId){
+                const idCart = '6666f64228f0298f768a4fa7'
+                fetch(`api/carts/${idCart}/products/${productId}`, {
+                    method:'POST',
+                    headers:{
+                        'Content-Type':'application/json',
+                    }
+                })
+                .then(resp=>resp.json())
+                .then(data=>{
+                    console.log(data)
+                })
+                .catch(error=>{
+                    console.log('Error: ', error)
+                })
+            }
+        </script>
+
     </div>
 </div>
 
