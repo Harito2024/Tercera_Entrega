@@ -1,16 +1,16 @@
 const express = require('express')
 const router = express.Router()
-const { isAutheticaded } = require('../middleware/auth.js')
+const { admin, auth } = require('../middleware/auth.js')
 const { getProductsServices } = require('../service/products.service.js')
 const { getCartByIdService } = require('../service/cart.service.js')
-const { homeView, realTimeProductsView, chatView, productsView, cartView, loginGetView, registerGetView, loginPostView, registerPostView, logout } = require('../controllers/views.js')
+const { homeView, realtimeProductsView, chatView, productsView, cartView, loginGetView, registerGetView, loginPostView, registerPostView, logout } = require('../controllers/views.js')
 
 
 router.get('/', homeView)
-router.get('/realTimeProducts', isAutheticaded , realTimeProductsView)
-router.get('/chat', isAutheticaded, chatView)
-router.get('/products', isAutheticaded, productsView)
-router.get('/cart/:cid', isAutheticaded, cartView)
+router.get('/realtimeProducts', [auth, admin], realtimeProductsView)
+router.get('/chat', auth, chatView)
+router.get('/products', auth, productsView)
+router.get('/cart/:cid', [auth, admin], cartView)
 
 router.get('/login', loginGetView)
 router.post('/login', loginPostView)

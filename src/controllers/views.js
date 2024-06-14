@@ -12,14 +12,14 @@ async function homeView(req, res) {
     return res.render('home', { products: payload, title:'home', user })
 }
 
-async function realTimeProductsView(req, res) {
-    const user = req.session.user 
-    return res.render('realTimeProducts', user)
+async function realtimeProductsView(req, res) {
+    const user = req.session.user
+    return res.render('realTimeProducts', {user:user})
 }
 
 async function chatView(req, res) {
     const user = req.session.user 
-    return res.render('chat', user)
+    return res.render('chat', {user:user})
 }
 
 async function productsView(req, res) {
@@ -36,16 +36,27 @@ async function cartView(req, res) {
 }
 
 async function loginGetView(req, res) {
+    const okLogin = req.session.user !== undefined
+    if(okLogin){
+        return res.redirect('/')
+    }
     return res.render('login', { title: 'login' })
 }
 
 async function registerGetView(req, res) {
+    const okLogin = req.session.user !== undefined
+    if(okLogin){
+        return res.redirect('/')
+    }
+
     return res.render('register', { title: 'register' })
 }
 
 async function registerPostView(req, res) {
     const { password, confirmPassword } = req.body
+
     if (password !== confirmPassword) {
+        console.log('Las contraseñas no son iguales')
         return res.redirect('/register')
     }
     const user = await registerUser({ ...req.body })
@@ -63,7 +74,7 @@ async function loginPostView(req, res) {
     const user = await getUserEmail(email)
 
     if (user && user.password === password) {
-        const userName = `${user.name} , ${user.lastName}`
+        const userName = `${user.name} ${user.lastName}`
         req.session.user = userName
         req.session.rol = user.rol
         return res.redirect('/')
@@ -84,7 +95,7 @@ async function logout(req, res) {
 
 module.exports = {
     homeView,
-    realTimeProductsView,
+    realtimeProductsView,
     chatView,
     productsView,
     cartView,

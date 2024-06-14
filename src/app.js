@@ -5,7 +5,7 @@ const PORT = 8080
 const handlebars = require('express-handlebars')
 const {Server} = require('socket.io')
 const bctypt = require('bcrypt')
-//const FileStore = require('session-file-store')
+const FileStore = require('session-file-store')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
 
@@ -32,11 +32,12 @@ app.use(cookieParser())
 app.use(session({
     store: MongoStore.create({
         mongoUrl:'mongodb+srv://Ezequiel_280:Juancho_2013@ezequiel280.xegphwu.mongodb.net/ecommerce?retryWrites=true&w=majority&appName=Ezequiel280',
-        mongoOptions:{useNewUrlParser:true, useUnifiedTopology:true},
+        ttl:3600
+        //mongoOptions:{useNewUrlParser:true, useUnifiedTopology:true},
     }),
     secret: '1234asd', // process.env.SECRET_SESSION
     resave: false,
-    saveUninitialized:false
+    saveUninitialized:true
 }))
 
 

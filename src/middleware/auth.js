@@ -1,6 +1,6 @@
 const express = require('express')
 
-function isAutheticaded(req, res, next){
+function auth(req, res, next){
     if(req.session?.user){
         return next()
     }else{
@@ -8,6 +8,14 @@ function isAutheticaded(req, res, next){
     }
 }
 
+function admin(req, res, next){
+    if(req.session?.rol === 'admin'){
+        return next()
+    }else{
+        res.redirect('/')
+    }
+}
+
 
  
-module.exports = {isAutheticaded}
+module.exports = {auth, admin}
