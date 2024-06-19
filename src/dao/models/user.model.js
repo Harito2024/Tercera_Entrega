@@ -4,7 +4,7 @@ const userColletion = 'User'
 
 const userSchema = new mongoose.Schema({
     name:{type: String,  required:[true, 'El nombre es obligatorio']},
-    lastName:{type: String,  required:[true, 'El apellido es obligatorio']},
+    lastName:{type: String},
     email:{type: String, required:[true, 'La direccion de correo es obligatorio'], unique:true},
     password:{type:String, required:[true, 'La contraseña es obligatoria']},
     rol:{type:String, default:'user', enum:['user', 'admin']},

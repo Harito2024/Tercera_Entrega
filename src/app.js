@@ -8,6 +8,7 @@ const bctypt = require('bcrypt')
 const FileStore = require('session-file-store')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
+const passport = require('passport')
 
 
 const productsRouter = require('./routes/products.router.js')
@@ -21,6 +22,7 @@ const productsModel = require('./dao/models/products.model.js')
 const messagesModel = require('./dao/models/messages.model.js')
 const cookieParser = require('cookie-parser')
 const { getProductsByIdServices, getProductsServices, addProductsServices } = require('./service/products.service.js')
+const { initialPassport } = require('./config/passport.js')
 
 //Escuchando Puerto
 const httpServer = app.listen(PORT, () => {console.log(`Server running on port ${PORT}`)})
@@ -39,6 +41,10 @@ app.use(session({
     resave: false,
     saveUninitialized:true
 }))
+
+initialPassport()
+app.use(passport.initialize())
+app.use(passport.session())
 
 
 //Middleware

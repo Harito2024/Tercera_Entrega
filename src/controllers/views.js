@@ -2,11 +2,13 @@ const express = require('express')
 const { getProductsServices } = require('../service/products.service.js')
 const { getCartByIdService } = require('../service/cart.service.js')
 const { registerUser, getUserEmail } = require('../service/users.services.js')
+const { createHash, isValidPassword } = require('../utils/bcryptPassword.js')
 
 
 
 async function homeView(req, res) {
-    let { payload } = await getProductsServices({})
+    const limit = 20
+    let { payload } = await getProductsServices({limit})
 
     const user = req.session.user 
     return res.render('home', { products: payload, title:'home', user })
@@ -53,33 +55,24 @@ async function registerGetView(req, res) {
 }
 
 async function registerPostView(req, res) {
-    const { password, confirmPassword } = req.body
-
-    if (password !== confirmPassword) {
-        console.log('Las contraseñas no son iguales')
-        return res.redirect('/register')
+    if(!req.user){
+        return res.redirect('/regiter')
     }
-    const user = await registerUser({ ...req.body })
-    if (user) {
-        const userName = `${user.name} ${user.lastName}`
-        req.session.user = userName
-        req.session.rol = user.rol
-        return res.redirect('/')
-    }
-    return res.redirect('/register')
+    return res.redirect('/login')
 }
 
 async function loginPostView(req, res) {
-    const { email, password } = req.body
-    const user = await getUserEmail(email)
-
-    if (user && user.password === password) {
-        const userName = `${user.name} ${user.lastName}`
-        req.session.user = userName
-        req.session.rol = user.rol
-        return res.redirect('/')
+    if(!req.user){
+        return res.redirect('/login')
     }
-    return res.redirect('/login')
+    req.session.user={
+        name: req.user.name,
+        lastName: req.user.lastName,
+        email: req.user.email,
+        rol: req.user.rol,
+    }
+    return res.redirect('/')
+
 }
 
 async function logout(req, res) {
@@ -93,6 +86,19 @@ async function logout(req, res) {
 
 }
 
+async function loginGitHub(req, res) {
+if(!req.user){
+    return res.redirect('/login')
+}
+req.session.user={
+    name: req.user.name,
+    lastName: req.user.lastName,
+    email: req.user.email,
+    rol: req.user.rol,
+}
+return res.redirect('/')
+}
+
 module.exports = {
     homeView,
     realtimeProductsView,
@@ -104,4 +110,5 @@ module.exports = {
     registerPostView,
     loginPostView,
     logout,
+    loginGitHub
 }
