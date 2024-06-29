@@ -12,7 +12,7 @@ async function getUserById(id){
 }
 async function getUserEmail(email){
     try {
-        return await userModel.findOne({email})    
+        return await userModel.findOne({email}).lean()    
     } catch (error) {
         console.log('getUserEmail=> ', error)
         throw error
@@ -21,7 +21,7 @@ async function getUserEmail(email){
 async function registerUser(user){
     /* console.log(user) */
     try {
-        return await userModel.create({...user})
+        return await userModel.create({...user}).lean()
     } catch (error) {
         console.log('registerUser=> ', error)
         throw error

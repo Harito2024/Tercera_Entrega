@@ -22,7 +22,8 @@ const productsModel = require('./dao/models/products.model.js')
 const messagesModel = require('./dao/models/messages.model.js')
 const cookieParser = require('cookie-parser')
 const { getProductsByIdServices, getProductsServices, addProductsServices } = require('./service/products.service.js')
-const { initialPassport } = require('./config/passport.js')
+const { initializePassport } = require('./config/passport.js')
+
 
 //Escuchando Puerto
 const httpServer = app.listen(PORT, () => {console.log(`Server running on port ${PORT}`)})
@@ -42,7 +43,7 @@ app.use(session({
     saveUninitialized:true
 }))
 
-initialPassport()
+initializePassport()
 app.use(passport.initialize())
 app.use(passport.session())
 

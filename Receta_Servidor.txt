@@ -70,6 +70,14 @@ JC{
 	password: 125ABC
 }
 
+Moni{
+	nombre: Moni,
+	apellido: Haro,
+	email: mo@gmail.com,
+	edad:35,
+	password: 126ABC
+}
+
 
 ruben{
 _id
@@ -92,3 +100,5 @@ __v
 0
 
 }
+Repo de Omar
+https://github.com/omanias/dao-express/blob/main/src/dao/factory.js
